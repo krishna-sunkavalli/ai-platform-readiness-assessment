@@ -1,0 +1,9 @@
+# Default owners for everything
+* @microsoft/aira-maintainers
+
+# Workbook content
+/workbook/ @microsoft/aira-workbook-owners
+
+# CI/CD and scripts
+/scripts/ @microsoft/aira-maintainers
+/.github/ @microsoft/aira-maintainers

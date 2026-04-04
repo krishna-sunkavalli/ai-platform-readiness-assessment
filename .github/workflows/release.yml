@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate workbook JSON
+        run: |
+          python3 -c "
+          import json
+          json.load(open('workbook/ai-readiness-assessment.workbook'))
+          print('workbook JSON: valid')
+          "
+
+      - name: Validate ARM template and sync
+        run: |
+          python3 << 'EOF'
+          import json
+          wb_standalone = json.load(open('workbook/ai-readiness-assessment.workbook'))
+          arm = json.load(open('workbook/azuredeploy.json'))
+          wb_embedded = json.loads(arm['resources'][0]['properties']['serializedData'])
+          assert json.dumps(wb_standalone, sort_keys=True) == json.dumps(wb_embedded, sort_keys=True), \
+              'ARM template is out of sync with workbook. Run: scripts/build-arm-template.ps1'
+          print('ARM template and workbook are in sync')
+          EOF
+
+      - name: Create release artifacts
+        run: |
+          mkdir -p release
+          cp workbook/ai-readiness-assessment.workbook release/
+          cp workbook/azuredeploy.json release/
+          cd release && zip ../ai-platform-readiness-assessment-${{ steps.version.outputs.tag }}.zip *
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: AI Platform Readiness Assessment ${{ steps.version.outputs.tag }}
+          body: |
+            ## AI Platform Readiness Assessment ${{ steps.version.outputs.tag }}
+
+            ### Artifacts
+            - **azuredeploy.json** — ARM template for one-click Deploy to Azure
+            - **ai-readiness-assessment.workbook** — Standalone workbook JSON for manual import
+
+            ### Deploy
+            [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fai-platform-readiness-assessment%2F${{ steps.version.outputs.tag }}%2Fworkbook%2Fazuredeploy.json)
+
+            See [CHANGELOG.md](https://github.com/microsoft/ai-platform-readiness-assessment/blob/main/CHANGELOG.md) for details.
+          files: |
+            ai-platform-readiness-assessment-${{ steps.version.outputs.tag }}.zip
+            workbook/azuredeploy.json
+            workbook/ai-readiness-assessment.workbook
+          generate_release_notes: true
