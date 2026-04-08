@@ -17,10 +17,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Validate workbook JSON
-        run: python3 -c "import json; json.load(open('workbook/ai-readiness-assessment.workbook')); print('workbook JSON: valid')"
+        run: |
+          python3 -c "import json; json.load(open('workbook/ai-readiness-assessment.workbook')); print('workbook JSON: valid')"
 
       - name: Validate ARM template JSON
-        run: python3 -c "import json; json.load(open('workbook/azuredeploy.json')); print('ARM template JSON: valid')"
+        run: |
+          python3 -c "import json; json.load(open('workbook/azuredeploy.json')); print('ARM template JSON: valid')"
 
       - name: Check serializedData round-trip
         run: |
