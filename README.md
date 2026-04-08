@@ -16,10 +16,10 @@ Assess your Azure environment's readiness for AI workloads. This [Azure Monitor 
 | **Data Management & Governance** | 8 | Purview, Data Factory, Databricks, ADLS Gen2, Microsoft Fabric |
 | **Retrieval & Context Enablement** | 5 | AI Search, Redis Cache, Cosmos DB, PostgreSQL, Document Intelligence |
 | **Model Management** | 8 | Azure OpenAI, ML Workspaces, GPU Compute, AI Foundry, Endpoints |
-| **Responsible AI** | 4 | Content Safety, Content Filtering, Content Safety Feature Matrix, Red Teaming |
+| **Responsible AI** | 6 | Content Safety, Content Filtering, Content Safety Feature Matrix, Red Teaming, Guardrails |
 | **Security & Compliance** | 7 | Managed Identities, Key Vault, Private Endpoints, Defender, APIM |
 | **Monitoring & Operations** | 5 | App Insights, Diagnostics, Metric Alerts, Log Analytics |
-| **Total** | **37** | 35 automated ARG queries + 2 Manual/API checks |
+| **Total** | **39** | 36 automated ARG queries + 3 Manual/API checks |
 
 For the full list of queries with their IDs, types, and descriptions, see [queries.md](queries.md).
 

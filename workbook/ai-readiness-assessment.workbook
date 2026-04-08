@@ -1060,6 +1060,68 @@
               "noDataMessageStyle": 4
             },
             "name": "rai004-query"
+          },
+          {
+            "type": 1,
+            "content": {
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>RAI-005</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Deployment Guardrail Assignment</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Microsoft Foundry guardrails (RAI policies) assigned to model deployments.</span></div>"
+            },
+            "name": "rai005-header"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "resources\n| where type == 'microsoft.cognitiveservices/accounts/deployments'\n| extend raiPolicy = tostring(properties.raiPolicyName),\n         modelName = tostring(properties.model.name),\n         modelVersion = tostring(properties.model.version)\n| extend guardrailStatus = case(\n    isempty(raiPolicy), 'No Policy',\n    raiPolicy contains 'Default', 'Default',\n    'Custom'\n  )\n| project name, modelName, modelVersion, raiPolicy, guardrailStatus, subscriptionId",
+              "size": 3,
+              "title": "Deployment Guardrail Assignment",
+              "queryType": 1,
+              "resourceType": "microsoft.resourcegraph/resources",
+              "crossComponentResources": [
+                "{Subscription}"
+              ],
+              "visualization": "table",
+              "gridSettings": {
+                "formatters": [
+                  {
+                    "columnMatch": "guardrailStatus",
+                    "formatter": 18,
+                    "formatOptions": {
+                      "thresholdsOptions": "icons",
+                      "thresholdsGrid": [
+                        {
+                          "operator": "==",
+                          "thresholdValue": "Custom",
+                          "representation": "success",
+                          "text": "Custom"
+                        },
+                        {
+                          "operator": "==",
+                          "thresholdValue": "Default",
+                          "representation": "warning",
+                          "text": "Default"
+                        },
+                        {
+                          "operator": "Default",
+                          "representation": "error",
+                          "text": "No Policy"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "noDataMessage": "No model deployments found in the selected subscription(s).",
+              "noDataMessageStyle": 4
+            },
+            "name": "rai005-query"
+          },
+          {
+            "type": 1,
+            "content": {
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>RAI-006</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Guardrail Policy Details</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Manual/API &#x2014; List all RAI policies (guardrails) and their controls on a Foundry resource.</span></div><div style='margin:4px 0 8px 0;padding:8px 12px;background:#fff4ce;border-left:3px solid #ffb900;border-radius:3px;font-size:12px;color:#323130'><strong>&#x26A0; Manual Check Required:</strong> Use the Azure REST API to list guardrail policies and review controls (risks, severity levels, intervention points).<br/><code>GET https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.CognitiveServices/accounts/{account}/raiPolicies?api-version=2024-10-01</code></div>"
+            },
+            "name": "rai006-header"
           }
         ]
       },

@@ -31,6 +31,8 @@ All queries executed by the AI Platform Readiness Assessment workbook. 35 are au
 | RAI-002 | Content Filtering Enabled | ARG | Checks if Azure OpenAI/AI Services accounts have content safety filtering (RaiMonitor) enabled |
 | RAI-003 | Red Teaming Runs | Manual/API | Check AI Foundry portal or API for completed red teaming runs and ASR metrics |
 | RAI-004 | Content Safety Feature Matrix | ARG | Maps content safety capabilities per AI account |
+| RAI-005 | Deployment Guardrail Assignment | ARG | Checks which model deployments have Foundry guardrails (RAI policies) assigned and whether they use default or custom guardrails |
+| RAI-006 | Guardrail Policy Details | Manual/API | List all RAI policies (guardrails) and their controls on a Foundry resource via REST API |
 | SEC-001 | Managed Identities | ARG | Summarizes managed identity adoption across Cognitive Services, ML Workspaces, and AI Search |
 | SEC-002 | Key Vault | ARG | Lists Key Vaults with soft delete, purge protection, and RBAC authorization status |
 | SEC-003 | Private Networking & PE State | ARG | Reports public network access and private endpoint connection state for AI resources |
@@ -415,6 +417,34 @@ resources
     '')
 | project name, kind, feature, subscriptionId
 | order by name asc, feature asc
+```
+
+### RAI-005 -- Deployment Guardrail Assignment
+
+**Function:** Checks which model deployments have Foundry guardrails (RAI policies) assigned and whether they use default or custom guardrails
+
+```kql
+resources
+| where type == 'microsoft.cognitiveservices/accounts/deployments'
+| extend raiPolicy = tostring(properties.raiPolicyName),
+         modelName = tostring(properties.model.name),
+         modelVersion = tostring(properties.model.version)
+| extend guardrailStatus = case(
+    isempty(raiPolicy), 'No Policy',
+    raiPolicy contains 'Default', 'Default',
+    'Custom'
+  )
+| project name, modelName, modelVersion, raiPolicy, guardrailStatus, subscriptionId
+```
+
+### RAI-006 -- Guardrail Policy Details
+
+**Type:** Manual/API
+
+List all RAI policies (guardrails) and their controls on a Foundry resource. Review controls for risks, severity levels, and intervention points.
+
+```
+GET https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.CognitiveServices/accounts/{account}/raiPolicies?api-version=2024-10-01
 ```
 
 ---
