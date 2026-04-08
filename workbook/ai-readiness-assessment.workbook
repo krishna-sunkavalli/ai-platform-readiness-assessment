@@ -4,7 +4,7 @@
     {
       "type": 1,
       "content": {
-        "json": "<div style='padding:16px 20px;background:#eff6fc;border-left:3px solid #0078d4;border-radius:6px;margin-bottom:8px'><h2 style='margin:0 0 4px 0;color:#0078d4;font-size:18px'>AIRA — AI Platform Readiness Assessment</h2><p style='margin:0;font-size:13px;color:#605e5c'>Evaluates your Azure environment across six readiness pillars. Select subscription(s) to run the assessment.</p></div>"
+        "json": "<div style='padding:16px 20px;background:#eff6fc;border-left:3px solid #0078d4;border-radius:6px;margin-bottom:8px'><h2 style='margin:0 0 4px 0;color:#0078d4;font-size:18px'>AI Platform Readiness Assessment</h2><p style='margin:0;font-size:13px;color:#605e5c'>Evaluates your Azure environment across six readiness pillars. Select subscription(s) to run the assessment.</p></div>"
       },
       "name": "header"
     },
@@ -56,15 +56,6 @@
             "crossComponentResources": [
               "{Subscription}"
             ]
-          },
-          {
-            "id": "show-legacy-ml",
-            "version": "KqlParameterItem/1.0",
-            "name": "ShowLegacyML",
-            "label": "Show legacy ML queries",
-            "type": 2,
-            "isRequired": true,
-            "jsonData": "[{\"value\":\"no\",\"label\":\"No\",\"selected\":true},{\"value\":\"yes\",\"label\":\"Yes\"}]"
           }
         ],
         "style": "pills"
@@ -707,14 +698,9 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-002</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>ML Workspaces</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Azure Machine Learning workspaces with MLflow tracking.</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-002</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>ML Workspaces</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Azure Machine Learning workspaces with MLflow tracking.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Foundry)</span></div>"
             },
-            "name": "mdl002-header",
-            "conditionalVisibility": {
-              "parameterName": "ShowLegacyML",
-              "comparison": "isEqualTo",
-              "value": "yes"
-            }
+            "name": "mdl002-header"
           },
           {
             "type": 3,
@@ -756,24 +742,14 @@
               "noDataMessage": "No resources found in the selected subscription(s).",
               "noDataMessageStyle": 4
             },
-            "name": "mdl002-query",
-            "conditionalVisibility": {
-              "parameterName": "ShowLegacyML",
-              "comparison": "isEqualTo",
-              "value": "yes"
-            }
+            "name": "mdl002-query"
           },
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>GPU Compute</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>GPU resources for model training and inference.</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>GPU Compute</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>GPU resources for model training and inference.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Foundry)</span></div>"
             },
-            "name": "mdl003-header",
-            "conditionalVisibility": {
-              "parameterName": "ShowLegacyML",
-              "comparison": "isEqualTo",
-              "value": "yes"
-            }
+            "name": "mdl003-header"
           },
           {
             "type": 3,
@@ -791,12 +767,7 @@
               "noDataMessage": "No resources found in the selected subscription(s).",
               "noDataMessageStyle": 4
             },
-            "name": "mdl003-query",
-            "conditionalVisibility": {
-              "parameterName": "ShowLegacyML",
-              "comparison": "isEqualTo",
-              "value": "yes"
-            }
+            "name": "mdl003-query"
           },
           {
             "type": 1,
