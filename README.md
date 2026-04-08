@@ -1,11 +1,11 @@
 # AI Platform Readiness Assessment
 
-[![Validate](https://github.com/microsoft/ai-platform-readiness-assessment/actions/workflows/validate.yml/badge.svg)](https://github.com/microsoft/ai-platform-readiness-assessment/actions/workflows/validate.yml)
+[![Validate](https://github.com/krishna-sunkavalli/ai-platform-readiness-assessment/actions/workflows/validate.yml/badge.svg)](https://github.com/krishna-sunkavalli/ai-platform-readiness-assessment/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Assess your Azure environment's readiness for AI workloads. This [Azure Monitor Workbook](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) evaluates resources across **6 capability pillars** using **Azure Resource Graph** queries and presents an interactive, shareable dashboard — no agents, no code, no external dependencies.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fai-platform-readiness-assessment%2Fmain%2Fworkbook%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrishna-sunkavalli%2Fai-platform-readiness-assessment%2Fmain%2Fworkbook%2Fazuredeploy.json)
 
 <!-- TODO: Add screenshot — save as docs/screenshot.png -->
 
@@ -43,7 +43,7 @@ Each pillar receives a weighted score based on detected resources and configurat
 Click the button above, or use the direct link:
 
 ```
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure-ai-platform-readiness-assessment%2Fmain%2Fworkbook%2Fazuredeploy.json
+https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrishna-sunkavalli%2Fai-platform-readiness-assessment%2Fmain%2Fworkbook%2Fazuredeploy.json
 ```
 
 ### Option 2: Azure CLI
