@@ -20,8 +20,8 @@ All queries executed by the AI Platform Readiness Assessment workbook. 35 are au
 | RCE-004 | Vector Stores | ARG | Aggregates all vector-capable stores: AI Search, Cosmos DB (vector), PostgreSQL (pgvector) |
 | RCE-005 | Document Intelligence | ARG | Lists Azure AI Document Intelligence accounts for OCR and document processing |
 | MDL-001 | Azure OpenAI / AI Services | ARG | Lists core model hosting services with auth, networking, and private endpoint status |
-| MDL-002 | ML Workspaces | ARG | Lists Azure ML workspaces with MLflow tracking, identity, and App Insights config |
-| MDL-003 | GPU Compute | ARG | Summarizes GPU resources (NC/ND/NV series) for model training and inference |
+| MDL-002 | ML Workspaces *(optional)* | ARG | Lists Azure ML workspaces with MLflow tracking, identity, and App Insights config |
+| MDL-003 | GPU Compute *(optional)* | ARG | Summarizes GPU resources (NC/ND/NV series) for model training and inference |
 | MDL-004 | AI Foundry Projects | ARG | Lists AI Foundry projects with identity and endpoint configuration |
 | MDL-005 | Online Endpoints | ARG | Lists real-time model serving endpoints with auth mode and provisioning state |
 | MDL-006 | Model Deployments | ARG | Lists deployed models on Azure OpenAI/AI Services with model name, version, and capacity type |
@@ -251,7 +251,9 @@ resources
 | project name, kind, sku, publicAccess, disableLocalAuth, privateEndpoints, location, subscriptionId
 ```
 
-### MDL-002 -- ML Workspaces
+### MDL-002 -- ML Workspaces *(optional)*
+
+> Hidden by default. Set **Show legacy ML queries → Yes** to display.
 
 **Function:** Lists Azure ML workspaces with MLflow tracking, identity, and App Insights config
 
@@ -266,7 +268,9 @@ resources
 | project name, mlflow, publicAccess, hbiWorkspace, appInsights, identity, subscriptionId
 ```
 
-### MDL-003 -- GPU Compute
+### MDL-003 -- GPU Compute *(optional)*
+
+> Hidden by default. Set **Show legacy ML queries → Yes** to display.
 
 **Function:** Summarizes GPU resources (NC/ND/NV series) for model training and inference
 

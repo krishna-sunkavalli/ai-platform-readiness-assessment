@@ -202,7 +202,10 @@ resources
 
 ---
 
-### MDL-002 — ML Workspaces
+### MDL-002 — ML Workspaces *(optional)*
+
+> Hidden by default. Set **Show legacy ML queries → Yes** to display.
+
 ARG
 ```kql
 resources
@@ -217,7 +220,10 @@ resources
 
 ---
 
-### MDL-003 — GPU Compute
+### MDL-003 — GPU Compute *(optional)*
+
+> Hidden by default. Set **Show legacy ML queries → Yes** to display.
+
 ARG
 ```kql
 resources
