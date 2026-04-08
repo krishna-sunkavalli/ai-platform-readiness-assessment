@@ -21,6 +21,8 @@ Assess your Azure environment's readiness for AI workloads. This [Azure Monitor 
 | **Monitoring & Operations** | 5 | App Insights, Diagnostics, Metric Alerts, Log Analytics |
 | **Total** | **37** | 35 automated ARG queries + 2 Manual/API checks |
 
+For the full list of queries with their IDs, types, and descriptions, see [queries.md](queries.md).
+
 ### Scoring
 
 Each pillar receives a weighted score based on detected resources and configurations. The overall **AI Readiness Score** (0–100%) is displayed as an interactive ring gauge, with per-pillar progress bars for quick identification of gaps.
