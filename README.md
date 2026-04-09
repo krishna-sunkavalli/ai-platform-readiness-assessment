@@ -23,15 +23,38 @@ Assess your Azure environment's readiness for AI workloads. This [Azure Monitor 
 
 For the full list of queries with their IDs, types, and descriptions, see [queries.md](queries.md).
 
-### Scoring
+### Scoring Logic
 
-Each pillar receives a weighted score based on detected resources and configurations. The overall **AI Readiness Score** (0–100%) is displayed as an interactive ring gauge, with per-pillar progress bars for quick identification of gaps.
+Scores use a two-tier **Adoption + Configuration** model. Each signal earns base points when the resource exists, and bonus points when key best-practice configurations are detected.
 
-| Score Range | Status |
-|:-----------:|--------|
-| ≥ 80% | Ready |
-| 50–79% | Partial |
-| < 50% | Needs Attention |
+| Signal | Pillar | Adopted | Configured | Configuration Check |
+|--------|--------|:-------:|:----------:|---------------------|
+| Purview | DMG | 3 | — | — |
+| Databricks | DMG | 2 | — | — |
+| Data Factory | DMG | 1 | +1 | Git integration configured |
+| ADLS Gen2 | DMG | 2 | — | — |
+| AI Search | RCE | 2 | — | — |
+| Redis Cache | RCE | 1 | — | — |
+| Cosmos DB | RCE | 1 | — | — |
+| Document Intelligence | RCE | 1 | — | — |
+| Azure OpenAI / AI Services | MDL | 2 | +1 | Local auth disabled (`disableLocalAuth`) |
+| ML Workspaces | MDL | 2 | — | — |
+| AI Foundry | MDL | 2 | +1 | Managed identity assigned |
+| Content Safety | RAI | 3 | — | — |
+| Key Vault | SEC | 1 | +2 | RBAC + soft delete + purge protection |
+| Managed Identity | SEC | 1 | +1 | ≥50% of AI resources have managed identity |
+| Private Endpoints | SEC | — | +1 | Any AI/ML resource has a private endpoint |
+| API Management | SEC | 2 | — | — |
+| App Insights | MON | 3 | — | — |
+| Managed Identity | MON | 2 | — | — |
+
+**Per-pillar score** = weighted points earned / pillar max × 100%. **Overall AI Readiness Score** = total weighted points / 38 × 100%.
+
+| Score Range | Color | Status |
+|:-----------:|:-----:|--------|
+| ≥ 80% | Green | Ready |
+| 50–79% | Yellow | Partial |
+| < 50% | Red | Needs Attention |
 
 ## Getting Started
 
