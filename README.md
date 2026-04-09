@@ -15,7 +15,7 @@ Assess your Azure environment's readiness for AI workloads. This [Azure Monitor 
 |--------|:-------:|-------------|
 | **Data Management & Governance** | 8 | Purview, Data Factory, Databricks, ADLS Gen2, Microsoft Fabric |
 | **Retrieval & Context Enablement** | 5 | AI Search, Redis Cache, Cosmos DB, PostgreSQL, Document Intelligence |
-| **Model Management** | 8 | Azure OpenAI, ML Workspaces, GPU Compute, AI Foundry, Endpoints |
+| **Model Management** | 8 | Azure OpenAI, ML Workspaces, GPU Compute, Microsoft Foundry, Endpoints |
 | **Responsible AI** | 6 | Content Safety, Content Filtering, Content Safety Feature Matrix, Red Teaming, Guardrails |
 | **Security & Compliance** | 7 | Managed Identities, Key Vault, Private Endpoints, Defender, APIM |
 | **Monitoring & Operations** | 5 | App Insights, Diagnostics, Metric Alerts, Log Analytics |
@@ -38,7 +38,7 @@ Scores use a two-tier **Adoption + Configuration** model. Each signal earns base
 | Cosmos DB | RCE | 1 | — | — |
 | Document Intelligence | RCE | 1 | — | — |
 | Azure OpenAI / AI Services | MDL | 2 | +1 | Local auth disabled (`disableLocalAuth`) |
-| AI Foundry | MDL | 2 | +1 | Managed identity assigned |
+| Microsoft Foundry | MDL | 2 | +1 | Managed identity assigned |
 | Content Safety | RAI | 3 | — | — |
 | Key Vault | SEC | 1 | +2 | RBAC + soft delete + purge protection |
 | Managed Identity | SEC | 1 | +1 | ≥50% of AI resources have managed identity |

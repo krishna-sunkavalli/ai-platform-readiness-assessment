@@ -141,7 +141,7 @@
             "type": 3,
             "content": {
               "version": "KqlItem/1.0",
-              "query": "resources\n| where type in~ (\n    'microsoft.cognitiveservices/accounts',\n    'microsoft.cognitiveservices/accounts/deployments',\n    'microsoft.cognitiveservices/accounts/projects',\n    'microsoft.machinelearningservices/workspaces',\n    'microsoft.search/searchservices',\n    'microsoft.cache/redis',\n    'microsoft.cache/redisenterprise',\n    'microsoft.documentdb/databaseaccounts',\n    'microsoft.purview/accounts',\n    'microsoft.databricks/workspaces',\n    'microsoft.datafactory/factories',\n    'microsoft.apimanagement/service',\n    'microsoft.insights/components'\n  )\n| extend serviceCategory = case(\n    type =~ 'microsoft.cognitiveservices/accounts' and kind in~ ('OpenAI','AIServices'), 'Azure OpenAI / AI Services',\n    type =~ 'microsoft.cognitiveservices/accounts' and kind =~ 'ContentSafety', 'Content Safety',\n    type =~ 'microsoft.cognitiveservices/accounts', 'Cognitive Services',\n    type =~ 'microsoft.cognitiveservices/accounts/deployments', 'Model Deployment',\n    type =~ 'microsoft.cognitiveservices/accounts/projects', 'AI Foundry Project',\n    type =~ 'microsoft.machinelearningservices/workspaces', 'ML Workspace',\n    type =~ 'microsoft.search/searchservices', 'AI Search',\n    type in~ ('microsoft.cache/redis','microsoft.cache/redisenterprise'), 'Redis Cache',\n    type =~ 'microsoft.documentdb/databaseaccounts', 'Cosmos DB',\n    type =~ 'microsoft.purview/accounts', 'Purview',\n    type =~ 'microsoft.databricks/workspaces', 'Databricks',\n    type =~ 'microsoft.datafactory/factories', 'Data Factory',\n    type =~ 'microsoft.apimanagement/service', 'API Management',\n    type =~ 'microsoft.insights/components', 'App Insights',\n    'Other'\n  )\n| summarize resourceCount = count() by location, serviceCategory\n| order by location asc, serviceCategory asc",
+              "query": "resources\n| where type in~ (\n    'microsoft.cognitiveservices/accounts',\n    'microsoft.cognitiveservices/accounts/deployments',\n    'microsoft.cognitiveservices/accounts/projects',\n    'microsoft.machinelearningservices/workspaces',\n    'microsoft.search/searchservices',\n    'microsoft.cache/redis',\n    'microsoft.cache/redisenterprise',\n    'microsoft.documentdb/databaseaccounts',\n    'microsoft.purview/accounts',\n    'microsoft.databricks/workspaces',\n    'microsoft.datafactory/factories',\n    'microsoft.apimanagement/service',\n    'microsoft.insights/components'\n  )\n| extend serviceCategory = case(\n    type =~ 'microsoft.cognitiveservices/accounts' and kind in~ ('OpenAI','AIServices'), 'Azure OpenAI / AI Services',\n    type =~ 'microsoft.cognitiveservices/accounts' and kind =~ 'ContentSafety', 'Content Safety',\n    type =~ 'microsoft.cognitiveservices/accounts', 'Cognitive Services',\n    type =~ 'microsoft.cognitiveservices/accounts/deployments', 'Model Deployment',\n    type =~ 'microsoft.cognitiveservices/accounts/projects', 'Microsoft Foundry Project',\n    type =~ 'microsoft.machinelearningservices/workspaces', 'ML Workspace',\n    type =~ 'microsoft.search/searchservices', 'AI Search',\n    type in~ ('microsoft.cache/redis','microsoft.cache/redisenterprise'), 'Redis Cache',\n    type =~ 'microsoft.documentdb/databaseaccounts', 'Cosmos DB',\n    type =~ 'microsoft.purview/accounts', 'Purview',\n    type =~ 'microsoft.databricks/workspaces', 'Databricks',\n    type =~ 'microsoft.datafactory/factories', 'Data Factory',\n    type =~ 'microsoft.apimanagement/service', 'API Management',\n    type =~ 'microsoft.insights/components', 'App Insights',\n    'Other'\n  )\n| summarize resourceCount = count() by location, serviceCategory\n| order by location asc, serviceCategory asc",
               "size": 3,
               "title": "AI Resources by Region & Service",
               "queryType": 1,
@@ -698,7 +698,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-002</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>ML Workspaces</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Azure Machine Learning workspaces with MLflow tracking.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Foundry)</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-002</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>ML Workspaces</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Azure Machine Learning workspaces with MLflow tracking.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Microsoft Foundry)</span></div>"
             },
             "name": "mdl002-header"
           },
@@ -747,7 +747,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>GPU Compute</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>GPU resources for model training and inference.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Foundry)</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>GPU Compute</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>GPU resources for model training and inference.</span><span style='font-size:11px;color:#a19f9d;margin-left:8px;font-style:italic'>(Optional — now covered by Microsoft Foundry)</span></div>"
             },
             "name": "mdl003-header"
           },
@@ -772,7 +772,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-004</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>AI Foundry Projects</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>AI Foundry projects for organizing models, data, and agents.</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-004</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Microsoft Foundry Projects</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Microsoft Foundry projects for organizing models, data, and agents.</span></div>"
             },
             "name": "mdl004-header"
           },
@@ -782,7 +782,7 @@
               "version": "KqlItem/1.0",
               "query": "resources\n| where type =~ 'microsoft.cognitiveservices/accounts/projects'\n| extend hasIdentity = isnotnull(identity.principalId),\n         endpoint = tostring(properties.endpoints)\n| project name, location, hasIdentity, endpoint, subscriptionId",
               "size": 3,
-              "title": "AI Foundry Projects",
+              "title": "Microsoft Foundry Projects",
               "queryType": 1,
               "resourceType": "microsoft.resourcegraph/resources",
               "crossComponentResources": [
@@ -944,7 +944,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-008</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>AI Foundry Evaluation Runs</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Projects with evaluation capabilities configured.</span></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MDL-008</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Microsoft Foundry Evaluation Runs</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Projects with evaluation capabilities configured.</span></div>"
             },
             "name": "mdl008-header"
           },
@@ -954,7 +954,7 @@
               "version": "KqlItem/1.0",
               "query": "resources\n| where type =~ 'microsoft.cognitiveservices/accounts/projects'\n| extend hasEvals = isnotnull(properties.evaluations)\n| project name, location, hasEvals, subscriptionId",
               "size": 3,
-              "title": "AI Foundry Evaluation Runs",
+              "title": "Microsoft Foundry Evaluation Runs",
               "queryType": 1,
               "resourceType": "microsoft.resourcegraph/resources",
               "crossComponentResources": [
@@ -1032,7 +1032,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>RAI-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Red Teaming Runs</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Manual/API &#x2014; Check for completed red teaming runs and Attack Success Rate (ASR) metrics.</span></div><div style='margin:4px 0 8px 0;padding:8px 12px;background:#fff4ce;border-left:3px solid #ffb900;border-radius:3px;font-size:12px;color:#323130'><strong>&#x26A0; Manual Check Required:</strong> Use AI Foundry portal or API to verify red teaming runs.<br/><code>GET https://{account}.services.ai.azure.com/api/projects/{project}/redteams/runs</code></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>RAI-003</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Red Teaming Runs</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Manual/API &#x2014; Check for completed red teaming runs and Attack Success Rate (ASR) metrics.</span></div><div style='margin:4px 0 8px 0;padding:8px 12px;background:#fff4ce;border-left:3px solid #ffb900;border-radius:3px;font-size:12px;color:#323130'><strong>&#x26A0; Manual Check Required:</strong> Use Microsoft Foundry portal or API to verify red teaming runs.<br/><code>GET https://{account}.services.ai.azure.com/api/projects/{project}/redteams/runs</code></div>"
             },
             "name": "rai003-header"
           },
@@ -1637,7 +1637,7 @@
           {
             "type": 1,
             "content": {
-              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MON-005</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Quality Evaluators</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Manual/API &#x2014; Check AI Foundry for groundedness, relevance, coherence, fluency evaluators.</span></div><div style='margin:4px 0 8px 0;padding:8px 12px;background:#fff4ce;border-left:3px solid #ffb900;border-radius:3px;font-size:12px;color:#323130'><strong>&#x26A0; Manual Check Required:</strong> Use AI Foundry portal or API to verify quality evaluators are configured.<br/><code>GET https://{account}.services.ai.azure.com/api/projects/{project}/evaluations</code></div>"
+              "json": "<div style='margin:16px 0 4px 0;border-bottom:1px solid #edebe9;padding-bottom:4px'><span style='font-size:11px;font-weight:600;color:#0078d4;text-transform:uppercase;letter-spacing:.5px'>MON-005</span>&nbsp;&nbsp;<span style='font-size:14px;font-weight:600;color:#323130'>Quality Evaluators</span><span style='font-size:12px;color:#605e5c;margin-left:8px'>Manual/API &#x2014; Check Microsoft Foundry for groundedness, relevance, coherence, fluency evaluators.</span></div><div style='margin:4px 0 8px 0;padding:8px 12px;background:#fff4ce;border-left:3px solid #ffb900;border-radius:3px;font-size:12px;color:#323130'><strong>&#x26A0; Manual Check Required:</strong> Use Microsoft Foundry portal or API to verify quality evaluators are configured.<br/><code>GET https://{account}.services.ai.azure.com/api/projects/{project}/evaluations</code></div>"
             },
             "name": "mon005-header"
           }

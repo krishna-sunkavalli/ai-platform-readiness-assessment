@@ -38,7 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Initial release with 36 assessment queries across 6 pillars
 - **Data Management & Governance (8 queries)**: Purview accounts, scan rulesets, data classification, lineage, Databricks Unity Catalog, ADF ETL, Lakehouse (ADLS/Databricks/Fabric), retention policies
 - **Retrieval & Context Enablement (5 queries)**: AI Search (with vector capability), Redis Cache, Cosmos DB / PostgreSQL, vector stores inventory, Document Intelligence
-- **Model Management (8 queries)**: Azure OpenAI / AI Services, ML workspaces, GPU compute, AI Foundry projects, online endpoints, model deployments, fine-tuned models, evaluation runs
+- **Model Management (8 queries)**: Azure OpenAI / AI Services, ML workspaces, GPU compute, Microsoft Foundry projects, online endpoints, model deployments, fine-tuned models, evaluation runs
 - **Responsible AI (3 queries)**: Content Safety (ARG), safety evaluators (Manual/API), red teaming runs (Manual/API)
 - **Security & Compliance (7 queries)**: Managed identities, Key Vault, private networking, Defender for Cloud, Defender for AI, model API authentication, APIM as AI gateway
 - **Monitoring & Operations (5 queries)**: Application Insights, AI services diagnostics, metric alerts, Log Analytics workspace coverage, quality evaluators (Manual/API)

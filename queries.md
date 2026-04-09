@@ -22,14 +22,14 @@ All queries executed by the AI Platform Readiness Assessment workbook. 35 are au
 | MDL-001 | Azure OpenAI / AI Services | ARG | Lists core model hosting services with auth, networking, and private endpoint status |
 | MDL-002 | ML Workspaces *(optional)* | ARG | Lists Azure ML workspaces with MLflow tracking, identity, and App Insights config |
 | MDL-003 | GPU Compute *(optional)* | ARG | Summarizes GPU resources (NC/ND/NV series) for model training and inference |
-| MDL-004 | AI Foundry Projects | ARG | Lists AI Foundry projects with identity and endpoint configuration |
+| MDL-004 | Microsoft Foundry Projects | ARG | Lists Microsoft Foundry projects with identity and endpoint configuration |
 | MDL-005 | Online Endpoints | ARG | Lists real-time model serving endpoints with auth mode and provisioning state |
 | MDL-006 | Model Deployments | ARG | Lists deployed models on Azure OpenAI/AI Services with model name, version, and capacity type |
 | MDL-007 | Fine-Tuned Models | ARG | Detects custom fine-tuned model deployments |
-| MDL-008 | AI Foundry Evaluation Runs | ARG | Checks AI Foundry projects for evaluation capabilities |
+| MDL-008 | Microsoft Foundry Evaluation Runs | ARG | Checks Microsoft Foundry projects for evaluation capabilities |
 | RAI-001 | Content Safety | ARG | Lists dedicated Content Safety service instances |
 | RAI-002 | Content Filtering Enabled | ARG | Checks if Azure OpenAI/AI Services accounts have content safety filtering (RaiMonitor) enabled |
-| RAI-003 | Red Teaming Runs | Manual/API | Check AI Foundry portal or API for completed red teaming runs and ASR metrics |
+| RAI-003 | Red Teaming Runs | Manual/API | Check Microsoft Foundry portal or API for completed red teaming runs and ASR metrics |
 | RAI-004 | Content Safety Feature Matrix | ARG | Maps content safety capabilities per AI account |
 | RAI-005 | Deployment Guardrail Assignment | ARG | Checks which model deployments have Foundry guardrails (RAI policies) assigned and whether they use default or custom guardrails |
 | RAI-006 | Guardrail Policy Details | Manual/API | List all RAI policies (guardrails) and their controls on a Foundry resource via REST API |
@@ -44,7 +44,7 @@ All queries executed by the AI Platform Readiness Assessment workbook. 35 are au
 | MON-002 | AI Services Diagnostics | ARG | Reports diagnostic settings coverage for Cognitive Services and ML Workspaces |
 | MON-003 | Metric Alert Rules | ARG | Lists metric alert rules targeting Cognitive Services resources |
 | MON-004 | Log Analytics Workspace Coverage | ARG | Reports how many AI resources route diagnostics to a Log Analytics workspace |
-| MON-005 | Quality Evaluators | Manual/API | Check AI Foundry portal or API for groundedness, relevance, coherence, fluency evaluators |
+| MON-005 | Quality Evaluators | Manual/API | Check Microsoft Foundry portal or API for groundedness, relevance, coherence, fluency evaluators |
 
 ---
 
@@ -282,9 +282,9 @@ resources
 | summarize count() by vmSize
 ```
 
-### MDL-004 -- AI Foundry Projects
+### MDL-004 -- Microsoft Foundry Projects
 
-**Function:** Lists AI Foundry projects with identity and endpoint configuration
+**Function:** Lists Microsoft Foundry projects with identity and endpoint configuration
 
 ```kql
 resources
@@ -334,9 +334,9 @@ resources
 | project name, modelName, modelVersion, location, subscriptionId
 ```
 
-### MDL-008 -- AI Foundry Evaluation Runs
+### MDL-008 -- Microsoft Foundry Evaluation Runs
 
-**Function:** Checks AI Foundry projects for evaluation capabilities
+**Function:** Checks Microsoft Foundry projects for evaluation capabilities
 
 ```kql
 resources
@@ -378,7 +378,7 @@ resources
 
 **Type:** Manual/API
 
-Check AI Foundry portal or API for completed red teaming runs and Attack Success Rate (ASR) metrics.
+Check Microsoft Foundry portal or API for completed red teaming runs and Attack Success Rate (ASR) metrics.
 
 ```
 GET https://{account}.services.ai.azure.com/api/projects/{project}/redteams/runs
@@ -622,7 +622,7 @@ resources
 
 **Type:** Manual/API
 
-Check AI Foundry portal or API for groundedness, relevance, coherence, fluency evaluators.
+Check Microsoft Foundry portal or API for groundedness, relevance, coherence, fluency evaluators.
 
 ```
 GET https://{account}.services.ai.azure.com/api/projects/{project}/evaluations

@@ -235,7 +235,7 @@ resources
 
 ---
 
-### MDL-004 — AI Foundry Projects
+### MDL-004 — Microsoft Foundry Projects
 ARG
 ```kql
 resources
@@ -287,7 +287,7 @@ resources
 
 ---
 
-### MDL-008 — AI Foundry Evaluation Runs
+### MDL-008 — Microsoft Foundry Evaluation Runs
 ARG
 ```kql
 resources
