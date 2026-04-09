@@ -38,7 +38,6 @@ Scores use a two-tier **Adoption + Configuration** model. Each signal earns base
 | Cosmos DB | RCE | 1 | — | — |
 | Document Intelligence | RCE | 1 | — | — |
 | Azure OpenAI / AI Services | MDL | 2 | +1 | Local auth disabled (`disableLocalAuth`) |
-| ML Workspaces | MDL | 2 | — | — |
 | AI Foundry | MDL | 2 | +1 | Managed identity assigned |
 | Content Safety | RAI | 3 | — | — |
 | Key Vault | SEC | 1 | +2 | RBAC + soft delete + purge protection |
@@ -48,7 +47,9 @@ Scores use a two-tier **Adoption + Configuration** model. Each signal earns base
 | App Insights | MON | 3 | — | — |
 | Managed Identity | MON | 2 | — | — |
 
-**Per-pillar score** = weighted points earned / pillar max × 100%. **Overall AI Readiness Score** = total weighted points / 38 × 100%.
+**Per-pillar score** = weighted points earned / pillar max × 100%. **Overall AI Readiness Score** = total weighted points / 36 × 100%.
+
+> **Note:** MDL-002 (ML Workspaces) and MDL-003 (GPU Compute) are shown for informational purposes and do not contribute to the score.
 
 | Score Range | Color | Status |
 |:-----------:|:-----:|--------|
