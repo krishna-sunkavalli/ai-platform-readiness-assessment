@@ -7,7 +7,7 @@ Assess your Azure environment's readiness for AI workloads. This [Azure Monitor 
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrishna-sunkavalli%2Fai-platform-readiness-assessment%2Fmain%2Fworkbook%2Fazuredeploy.json)
 
-<!-- TODO: Add screenshot — save as docs/screenshot.png -->
+![Assessment Overview](docs/media/Assessment%20Overview.jpg)
 
 ## What It Assesses
 
@@ -107,6 +107,8 @@ New-AzResourceGroupDeployment `
 2. **Review Summary** — The top section shows the overall score ring and per-pillar progress bars
 3. **Expand Pillars** — Click each pillar section to see detailed query results
 4. **Check Status Icons** — ✅ Compliant, ⚠️ Warning, ❌ Missing
+
+![Security & Compliance pillar detail](docs/media/Security.jpg)
 
 ## Repository Structure
 
