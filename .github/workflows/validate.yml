@@ -14,7 +14,7 @@ jobs:
     name: Validate JSON & Structure
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Validate workbook JSON
         run: |
@@ -72,7 +72,7 @@ jobs:
     name: Lint PowerShell Scripts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run PSScriptAnalyzer
         shell: pwsh
