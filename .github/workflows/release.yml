@@ -47,7 +47,7 @@ jobs:
           cd release && zip ../ai-platform-readiness-assessment-${{ steps.version.outputs.tag }}.zip *
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: AI Platform Readiness Assessment ${{ steps.version.outputs.tag }}
           body: |
